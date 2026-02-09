@@ -4,10 +4,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import Index from "./pages/Index";
-import Article from "./pages/Article";
-import Contact from "./pages/Contact";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/About";
+import { PracticeAreasPage, PracticeAreaDetailPage } from "./pages/PracticeAreas";
+import BlogPage from "./pages/Blog";
+import SchedulePage from "./pages/Schedule";
+import ContactPage from "./pages/Contact";
+import PrivacyPolicyPage from "./pages/PrivacyPolicy";
+import TermsPage from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,12 +24,15 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/blog" element={<Index />} />
-          <Route path="/article/:slug" element={<Article />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/areas-de-atuacao" element={<PracticeAreasPage />} />
+          <Route path="/areas-de-atuacao/:slug" element={<PracticeAreaDetailPage />} />
+          <Route path="/sobre" element={<AboutPage />} />
+          <Route path="/conteudos" element={<BlogPage />} />
+          <Route path="/agendar" element={<SchedulePage />} />
+          <Route path="/contato" element={<ContactPage />} />
+          <Route path="/politica-de-privacidade" element={<PrivacyPolicyPage />} />
+          <Route path="/termos" element={<TermsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
