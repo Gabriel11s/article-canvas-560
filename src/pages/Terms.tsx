@@ -9,14 +9,14 @@ const TermsPage = () => {
 
       <SectionContainer>
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-8">
+          <h1 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-4 tracking-tight">
             Termos de Uso e Disclaimer
           </h1>
-          <p className="text-sm text-muted-foreground mb-6">
-            Última atualização: [DATA]
+          <p className="text-sm text-muted-foreground mb-8">
+            Última atualização: Fevereiro de 2026
           </p>
 
-          <div className="space-y-8 text-muted-foreground leading-relaxed">
+          <div className="space-y-8 text-muted-foreground leading-relaxed text-sm">
             <div>
               <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
                 1. Natureza do conteúdo
@@ -92,8 +92,10 @@ const TermsPage = () => {
                 7. Contato
               </h2>
               <p>
-                Para dúvidas sobre estes termos, entre em contato pelo e-mail
-                [EMAIL].
+                Para dúvidas sobre estes termos, entre em contato pelo e-mail{" "}
+                <a href="mailto:marcusvfr@outlook.com" className="text-accent underline underline-offset-2">
+                  marcusvfr@outlook.com
+                </a>.
               </p>
             </div>
           </div>

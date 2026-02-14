@@ -1,201 +1,133 @@
-import CenteredContent from "@/components/CenteredContent";
-import Header from "@/components/Header";
+import LawyerHeader from "@/components/LawyerHeader";
+import LawyerFooter from "@/components/LawyerFooter";
+import { SectionContainer } from "@/components/PageLayout";
 
-const PrivacyPolicy = () => {
+const PrivacyPolicyPage = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Header />
+    <div className="min-h-screen bg-background">
+      <LawyerHeader />
 
-      <main className="flex-grow">
-        <CenteredContent className="py-16 md:py-24">
-          <article className="prose prose-lg max-w-none">
-            {/* Title */}
-            <h1 className="font-display text-[4rem] md:text-[6rem] font-semibold leading-[1.1] mb-12">
-              PRIVACY POLICY
-            </h1>
+      <SectionContainer>
+        <div className="max-w-3xl mx-auto">
+          <h1 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground mb-4 tracking-tight">
+            Política de Privacidade
+          </h1>
+          <p className="text-sm text-muted-foreground mb-8">
+            Última atualização: Fevereiro de 2026
+          </p>
 
-            {/* Last Updated */}
-            <div className="mb-16">
-              <p className="text-[1.4rem] text-muted-foreground">
-                Last Updated: October 28, 2025
+          <div className="space-y-8 text-muted-foreground leading-relaxed text-sm">
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                1. Controlador dos dados
+              </h2>
+              <p>
+                O responsável pelo tratamento dos dados pessoais coletados por este site é o advogado
+                Dr. Marcus Vinícius Ferreira Rodrigues, OAB/MG 213.881, com escritório na R. Rio Grande do Sul, 189 A — Santo Antônio, Pirapora/MG, CEP 39272-144.
+              </p>
+              <p className="mt-2">
+                Canal de contato para assuntos de privacidade:{" "}
+                <a href="mailto:marcusvfr@outlook.com" className="text-accent underline underline-offset-2">
+                  marcusvfr@outlook.com
+                </a>
               </p>
             </div>
 
-            {/* Introduction */}
-            <div className="mb-12">
-              <p className="text-[1.6rem] text-muted-foreground leading-relaxed">
-                At Voyager Press, we respect your privacy and are committed to protecting your personal information.
-                This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website
-                or interact with our services.
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                2. Dados coletados
+              </h2>
+              <p>
+                Coletamos apenas os dados que você fornece voluntariamente:
+              </p>
+              <ul className="list-disc pl-6 space-y-1.5 mt-2">
+                <li>Nome, telefone, e-mail e mensagem enviados pelo formulário de contato</li>
+                <li>Dados compartilhados via WhatsApp para fins de agendamento</li>
+                <li>Cookies básicos necessários ao funcionamento do site (analíticos, se houver)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                3. Finalidade do tratamento
+              </h2>
+              <ul className="list-disc pl-6 space-y-1.5">
+                <li>Responder a contatos e dúvidas enviadas</li>
+                <li>Realizar agendamento de atendimento</li>
+                <li>Prestar informações jurídicas iniciais</li>
+                <li>Melhorar a experiência de navegação no site</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                4. Base legal
+              </h2>
+              <p>
+                O tratamento dos dados pessoais é realizado com base no consentimento do titular (art. 7º, I, LGPD) — fornecido ao preencher o formulário e marcar a caixa de consentimento — e/ou no legítimo interesse do controlador (art. 7º, IX, LGPD), quando aplicável, para fins de comunicação e prestação de serviços.
               </p>
             </div>
 
-            {/* Section 1 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Information We Collect
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                5. Compartilhamento de dados
               </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  We collect information that you provide directly to us, including:
-                </p>
-                <ul className="list-disc pl-8 space-y-2 text-muted-foreground">
-                  <li>Name and email address when you subscribe to our newsletter</li>
-                  <li>Contact information when you submit inquiries through our contact form</li>
-                  <li>Any other information you choose to provide when communicating with us</li>
-                </ul>
-              </div>
+              <p>
+                Seus dados pessoais não são vendidos, alugados ou compartilhados com terceiros para fins comerciais. Poderão ser compartilhados apenas com:
+              </p>
+              <ul className="list-disc pl-6 space-y-1.5 mt-2">
+                <li>Ferramentas de e-mail e agenda utilizadas para agendamento (ex.: Calendly)</li>
+                <li>Provedores de hospedagem e infraestrutura do site</li>
+                <li>Autoridades competentes, quando exigido por lei</li>
+              </ul>
             </div>
 
-            {/* Section 2 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                How We Use Your Information
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                6. Retenção e segurança
               </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  We use the information we collect to:
-                </p>
-                <ul className="list-disc pl-8 space-y-2 text-muted-foreground">
-                  <li>Send you newsletters and updates about our programs, exhibits, and news</li>
-                  <li>Respond to your inquiries and provide customer support</li>
-                  <li>Improve our website and services</li>
-                  <li>Comply with legal obligations</li>
-                </ul>
-              </div>
+              <p>
+                Os dados são armazenados pelo tempo necessário ao cumprimento das finalidades descritas ou pelo prazo legal aplicável. Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados contra acesso não autorizado, perda ou destruição.
+              </p>
             </div>
 
-            {/* Section 3 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Information Sharing
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                7. Direitos do titular
               </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  We do not sell, trade, or rent your personal information to third parties. We may share your
-                  information only in the following circumstances:
-                </p>
-                <ul className="list-disc pl-8 space-y-2 text-muted-foreground">
-                  <li>With service providers who assist us in operating our website and conducting our business</li>
-                  <li>When required by law or to protect our rights</li>
-                  <li>With your explicit consent</li>
-                </ul>
-              </div>
+              <p>
+                Nos termos da LGPD (Lei nº 13.709/2018), você tem direito a:
+              </p>
+              <ul className="list-disc pl-6 space-y-1.5 mt-2">
+                <li>Confirmar a existência de tratamento dos seus dados</li>
+                <li>Acessar, corrigir ou atualizar seus dados pessoais</li>
+                <li>Solicitar a exclusão ou anonimização dos dados</li>
+                <li>Revogar o consentimento a qualquer momento</li>
+                <li>Obter informações sobre com quem seus dados foram compartilhados</li>
+              </ul>
+              <p className="mt-2">
+                Para exercer seus direitos, entre em contato pelo e-mail{" "}
+                <a href="mailto:marcusvfr@outlook.com" className="text-accent underline underline-offset-2">
+                  marcusvfr@outlook.com
+                </a>.
+              </p>
             </div>
 
-            {/* Section 4 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Cookies and Tracking
+            <div>
+              <h2 className="font-serif text-xl font-semibold text-foreground mb-3">
+                8. Alterações
               </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  We use cookies and similar tracking technologies to enhance your browsing experience and
-                  analyze website traffic. You can control cookie preferences through your browser settings.
-                </p>
-              </div>
+              <p>
+                Esta Política de Privacidade pode ser atualizada a qualquer momento. Recomendamos a consulta periódica desta página.
+              </p>
             </div>
-
-            {/* Section 5 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Your Rights
-              </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  You have the right to:
-                </p>
-                <ul className="list-disc pl-8 space-y-2 text-muted-foreground">
-                  <li>Access, update, or delete your personal information</li>
-                  <li>Unsubscribe from our newsletter at any time</li>
-                  <li>Object to the processing of your data</li>
-                  <li>Request a copy of your data</li>
-                </ul>
-                <p className="text-muted-foreground">
-                  To exercise any of these rights, please contact us at{" "}
-                  <a
-                    href="mailto:privacy@voyager.com"
-                    className="text-foreground underline underline-offset-4 decoration-2 hover:text-primary transition-colors"
-                  >
-                    privacy@voyager.com
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Section 6 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Data Security
-              </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  We implement appropriate technical and organizational measures to protect your personal
-                  information against unauthorized access, alteration, disclosure, or destruction.
-                </p>
-              </div>
-            </div>
-
-            {/* Section 7 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Children's Privacy
-              </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  Our website is not intended for children under 13 years of age. We do not knowingly collect
-                  personal information from children under 13.
-                </p>
-              </div>
-            </div>
-
-            {/* Section 8 */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Changes to This Policy
-              </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  We may update this Privacy Policy from time to time. We will notify you of any changes by
-                  posting the new Privacy Policy on this page and updating the "Last Updated" date.
-                </p>
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div className="mb-12">
-              <h2 className="font-display text-[2.4rem] md:text-[3rem] font-semibold mb-6">
-                Contact Us
-              </h2>
-              <div className="text-[1.6rem] leading-relaxed space-y-4">
-                <p className="text-muted-foreground">
-                  If you have any questions about this Privacy Policy, please contact us at:
-                </p>
-                <p className="text-foreground">
-                  Email:{" "}
-                  <a
-                    href="mailto:privacy@voyager.com"
-                    className="underline underline-offset-4 decoration-2 hover:text-primary transition-colors"
-                  >
-                    privacy@voyager.com
-                  </a>
-                </p>
-              </div>
-            </div>
-          </article>
-        </CenteredContent>
-      </main>
-
-      {/* Footer */}
-      <footer className="border-t border-border mt-12">
-        <div className="article-grid py-12">
-          <div className="article-hero text-center text-sm text-muted-foreground">
-            <p>© 2024 Voyager Press. All rights reserved.</p>
           </div>
         </div>
-      </footer>
+      </SectionContainer>
+
+      <LawyerFooter />
     </div>
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyPolicyPage;

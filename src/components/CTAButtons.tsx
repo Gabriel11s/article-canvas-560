@@ -18,7 +18,7 @@ const CTAButtons = ({ variant = "default", className = "" }: CTAButtonsProps) =>
           </Link>
         </Button>
         <Button size="sm" variant="outline" asChild>
-          <a href="https://wa.me/55[TELEFONE_LIMPO]" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/5538988469501" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-4 w-4 mr-1" />
             WhatsApp
           </a>
@@ -29,20 +29,20 @@ const CTAButtons = ({ variant = "default", className = "" }: CTAButtonsProps) =>
 
   return (
     <div className={`flex flex-col sm:flex-row gap-3 ${className}`}>
-      <Button size="lg" asChild>
+      <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20" asChild>
         <Link to="/agendar">
           <Calendar className="h-5 w-5 mr-2" />
           Agendar Atendimento
         </Link>
       </Button>
-      <Button size="lg" variant="outline" asChild>
-        <a href="https://wa.me/55[TELEFONE_LIMPO]" target="_blank" rel="noopener noreferrer">
+      <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary hover:text-primary-foreground" asChild>
+        <a href="https://wa.me/5538988469501" target="_blank" rel="noopener noreferrer">
           <MessageCircle className="h-5 w-5 mr-2" />
           WhatsApp
         </a>
       </Button>
-      <Button size="lg" variant="outline" asChild>
-        <a href="tel:[TELEFONE]">
+      <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary hover:text-primary-foreground" asChild>
+        <a href="tel:+5538988469501">
           <Phone className="h-5 w-5 mr-2" />
           Ligar Agora
         </a>

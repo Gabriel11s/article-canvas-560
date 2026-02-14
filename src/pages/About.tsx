@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import LawyerHeader from "@/components/LawyerHeader";
 import LawyerFooter from "@/components/LawyerFooter";
 import CTAButtons from "@/components/CTAButtons";
 import { SectionContainer, SectionTitle } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
+import { CheckCircle } from "lucide-react";
 
 const AboutPage = () => {
   return (
@@ -12,46 +14,45 @@ const AboutPage = () => {
 
       {/* Apresentação */}
       <SectionContainer>
-        <div className="max-w-3xl">
-          <h1 className="font-serif text-4xl lg:text-5xl font-semibold text-foreground mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl"
+        >
+          <h1 className="font-serif text-4xl lg:text-5xl font-semibold text-foreground mb-8 tracking-tight">
             Sobre
           </h1>
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="w-32 h-32 rounded-full bg-muted shrink-0 flex items-center justify-center">
-              <span className="text-3xl font-serif font-semibold text-muted-foreground">
+            <div className="w-32 h-32 rounded-2xl bg-primary/10 shrink-0 flex items-center justify-center">
+              <span className="text-3xl font-serif font-bold text-primary/60">
                 MV
               </span>
             </div>
             <div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-                Sou Marcos Vinícius, advogado inscrito na OAB/[UF] sob o nº [Nº].
-                Atuo há [X] anos na advocacia, com foco em oferecer orientação
+                Sou Marcus Vinícius, advogado inscrito na OAB/MG sob o nº 213.881.
+                Atuo há mais de 4 anos na advocacia, com foco em oferecer orientação
                 jurídica clara, acessível e responsável.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Formado em Direito pela [FACULDADE], busco aliar técnica jurídica
-                à comunicação simples e direta, para que cada pessoa entenda seus
-                direitos e possa tomar decisões informadas.
+                Graduado em Direito, com cursos de aperfeiçoamento em Processo Civil, Direito de Família, Direito Previdenciário, Direito Bancário e Regularização Imobiliária. Busco aliar técnica jurídica à comunicação simples e direta.
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </SectionContainer>
 
       {/* Trajetória */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer className="bg-secondary/40">
         <div className="max-w-3xl mx-auto">
           <SectionTitle>Trajetória</SectionTitle>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Graduado em Direito por [FACULDADE], com [ESPECIALIZAÇÕES/PÓS-GRADUAÇÕES].
-              Ao longo de [X] anos de atuação, desenvolvi experiência em diversas
-              áreas do Direito, atendendo pessoas e empresas em [CIDADE/UF] e
-              região.
+              Com mais de 4 anos de atuação, desenvolvi experiência em Direito de Família e Sucessões, Previdenciário, Imobiliário/Regularização e Direito Bancário, atendendo pessoas em Pirapora/MG, região do Norte de Minas e, por meio do atendimento online, em todo o Brasil.
             </p>
             <p>
-              [INSIRA AQUI INFORMAÇÕES ADICIONAIS SOBRE TRAJETÓRIA, CURSOS,
-              EXPERIÊNCIAS RELEVANTES, ATUAÇÃO EM COMISSÕES DA OAB, ETC.]
+              O foco da minha atuação é a estratégia processual aliada à análise documental minuciosa, sempre buscando a condução clara e transparente de cada etapa para o cliente.
             </p>
           </div>
         </div>
@@ -61,32 +62,35 @@ const AboutPage = () => {
       <SectionContainer>
         <div className="max-w-3xl mx-auto">
           <SectionTitle>Forma de trabalho</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                title: "Organização",
-                desc: "Cada caso recebe atenção individual, com acompanhamento estruturado e prazos monitorados.",
+                title: "Atendimento direto com o advogado",
+                desc: "Cada caso recebe atenção individual, sem intermediários, com acompanhamento estruturado e prazos monitorados.",
               },
               {
                 title: "Transparência",
-                desc: "Mantenho o cliente informado sobre cada etapa do processo, riscos e possibilidades.",
+                desc: "Mantenho o cliente informado sobre cada etapa do processo, riscos, prazos e honorários.",
               },
               {
-                title: "Responsabilidade",
-                desc: "Atuo dentro dos limites éticos da profissão, com sigilo e diligência.",
+                title: "Linguagem clara",
+                desc: "Orientação preventiva quando possível, com comunicação objetiva para que você compreenda cada aspecto da sua situação.",
               },
               {
-                title: "Acessibilidade",
-                desc: "Linguagem clara e objetiva, para que você compreenda cada aspecto da sua situação jurídica.",
+                title: "Soluções práticas",
+                desc: "Atuação focada em soluções seguras e eficientes, com atualizações regulares do andamento e organização de documentos.",
               },
             ].map((item) => (
-              <div key={item.title}>
-                <h3 className="font-semibold text-foreground text-lg mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {item.desc}
-                </p>
+              <div key={item.title} className="flex gap-3">
+                <CheckCircle className="h-5 w-5 text-accent mt-1 shrink-0" />
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -94,15 +98,15 @@ const AboutPage = () => {
       </SectionContainer>
 
       {/* Valores */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer className="bg-secondary/40">
         <div className="max-w-3xl mx-auto">
           <SectionTitle>Valores</SectionTitle>
           <div className="flex flex-wrap gap-3">
-            {["Ética", "Técnica", "Clareza", "Diligência", "Sigilo", "Compromisso"].map(
+            {["Ética", "Técnica", "Clareza", "Diligência", "Sigilo", "Compromisso", "Humanização", "Transparência"].map(
               (valor) => (
                 <span
                   key={valor}
-                  className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                  className="px-5 py-2.5 bg-accent/10 text-accent rounded-full text-sm font-medium"
                 >
                   {valor}
                 </span>
@@ -118,23 +122,33 @@ const AboutPage = () => {
           <SectionTitle>Atendimento</SectionTitle>
           <div className="space-y-3 text-muted-foreground">
             <p>
-              <strong className="text-foreground">Presencial:</strong> [ENDEREÇO],
-              [CIDADE/UF]
+              <strong className="text-foreground">Presencial:</strong> R. Rio Grande do Sul, 189 A – Santo Antônio, Pirapora/MG
             </p>
             <p>
               <strong className="text-foreground">Online:</strong> Videoconferência
               para todo o Brasil, mediante agendamento.
             </p>
             <p>
-              <strong className="text-foreground">Horário:</strong> Segunda a
-              sexta, das 9h às 18h.
+              <strong className="text-foreground">Horário:</strong> Seg, Ter e Qua: 13h às 18h — Qui e Sex: 9h às 18h
+            </p>
+            <p>
+              <strong className="text-foreground">Regiões atendidas:</strong> Pirapora/MG e região do Norte de Minas (presencial), além de atendimento online para todo o Brasil.
             </p>
           </div>
         </div>
       </SectionContainer>
 
+      {/* Mensagem pessoal */}
+      <SectionContainer className="bg-secondary/40">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-lg text-muted-foreground italic leading-relaxed">
+            "Meu objetivo é que você entenda o seu caso, as alternativas possíveis e o caminho mais eficiente para resolver o problema, com seriedade e respeito."
+          </p>
+        </div>
+      </SectionContainer>
+
       {/* CTA */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer>
         <div className="text-center max-w-xl mx-auto">
           <h2 className="font-serif text-2xl lg:text-3xl font-semibold text-foreground mb-4">
             Vamos conversar?

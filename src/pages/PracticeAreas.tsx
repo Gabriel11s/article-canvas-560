@@ -10,6 +10,7 @@ import {
   ArrowLeft,
   CheckCircle,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -32,6 +33,15 @@ const iconMap: Record<string, React.ReactNode> = {
   Briefcase: <Briefcase className="h-8 w-8" />,
 };
 
+const iconMapSmall: Record<string, React.ReactNode> = {
+  Heart: <Heart className="h-6 w-6" />,
+  ShieldCheck: <ShieldCheck className="h-6 w-6" />,
+  Clock: <Clock className="h-6 w-6" />,
+  Scale: <Scale className="h-6 w-6" />,
+  Home: <Home className="h-6 w-6" />,
+  Briefcase: <Briefcase className="h-6 w-6" />,
+};
+
 /* Listing page */
 export const PracticeAreasPage = () => {
   return (
@@ -39,38 +49,48 @@ export const PracticeAreasPage = () => {
       <LawyerHeader />
 
       <SectionContainer>
-        <SectionTitle subtitle="Conheça as áreas em que oferecemos orientação jurídica.">
-          Áreas de Atuação
-        </SectionTitle>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {practiceAreas.map((area) => (
-            <Card
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <SectionTitle subtitle="Conheça as áreas em que oferecemos orientação jurídica.">
+            Áreas de Atuação
+          </SectionTitle>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {practiceAreas.map((area, i) => (
+            <motion.div
               key={area.slug}
-              className="group hover:shadow-md transition-shadow border-border/60"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08, duration: 0.4 }}
             >
-              <CardContent className="p-6">
-                <div className="text-primary mb-4">{iconMap[area.icon]}</div>
-                <h3 className="font-semibold text-xl text-foreground mb-2">
-                  {area.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {area.shortDescription}
-                </p>
-                <Link
-                  to={`/areas-de-atuacao/${area.slug}`}
-                  className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                >
-                  Saiba mais
-                  <ArrowRight className="h-4 w-4 ml-1" />
-                </Link>
-              </CardContent>
-            </Card>
+              <Card className="group hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1 transition-all duration-300 border-border/40 h-full">
+                <CardContent className="p-6">
+                  <div className="text-accent mb-4 p-2.5 bg-accent/10 rounded-lg w-fit">{iconMapSmall[area.icon]}</div>
+                  <h3 className="font-serif font-semibold text-xl text-foreground mb-2">
+                    {area.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {area.shortDescription}
+                  </p>
+                  <Link
+                    to={`/areas-de-atuacao/${area.slug}`}
+                    className="inline-flex items-center text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+                  >
+                    Saiba mais
+                    <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </SectionContainer>
 
       {/* CTA */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer className="bg-secondary/40">
         <div className="text-center max-w-xl mx-auto">
           <h2 className="font-serif text-2xl lg:text-3xl font-semibold text-foreground mb-4">
             Não encontrou sua área?
@@ -102,7 +122,7 @@ export const PracticeAreaDetailPage = () => {
             <h1 className="font-serif text-3xl font-semibold mb-4">
               Área não encontrada
             </h1>
-            <Link to="/areas-de-atuacao" className="text-primary hover:underline">
+            <Link to="/areas-de-atuacao" className="text-accent hover:underline">
               ← Voltar para Áreas de Atuação
             </Link>
           </div>
@@ -125,25 +145,31 @@ export const PracticeAreaDetailPage = () => {
           <ArrowLeft className="h-4 w-4 mr-1" />
           Áreas de Atuação
         </Link>
-        <div className="flex items-start gap-4 mb-6">
-          <div className="text-primary">{iconMap[area.icon]}</div>
-          <h1 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground">
-            {area.title}
-          </h1>
-        </div>
-        <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
-          {area.description}
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-start gap-4 mb-6">
+            <div className="text-accent p-3 bg-accent/10 rounded-xl">{iconMap[area.icon]}</div>
+            <h1 className="font-serif text-3xl lg:text-4xl font-semibold text-foreground tracking-tight">
+              {area.title}
+            </h1>
+          </div>
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-3xl">
+            {area.description}
+          </p>
+        </motion.div>
       </SectionContainer>
 
       {/* Situações comuns */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer className="bg-secondary/40">
         <SectionTitle>Situações comuns</SectionTitle>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-3xl">
           {area.commonSituations.map((s, i) => (
-            <li key={i} className="flex items-start gap-2">
+            <li key={i} className="flex items-start gap-2.5">
               <CheckCircle className="h-5 w-5 text-accent mt-0.5 shrink-0" />
-              <span className="text-foreground">{s}</span>
+              <span className="text-foreground text-sm">{s}</span>
             </li>
           ))}
         </ul>
@@ -155,26 +181,31 @@ export const PracticeAreaDetailPage = () => {
         <div className="max-w-2xl space-y-4">
           {area.methodology.map((step, i) => (
             <div key={i} className="flex items-start gap-4">
-              <span className="text-sm font-semibold text-primary bg-primary/10 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
+              <span className="text-sm font-semibold text-accent bg-accent/10 rounded-full w-8 h-8 flex items-center justify-center shrink-0">
                 {i + 1}
               </span>
-              <p className="text-foreground pt-1">{step}</p>
+              <p className="text-foreground pt-1 text-sm">{step}</p>
             </div>
           ))}
         </div>
       </SectionContainer>
 
       {/* Documentos */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer className="bg-secondary/40">
         <SectionTitle>Documentos iniciais</SectionTitle>
         <ul className="max-w-2xl space-y-2">
           {area.documents.map((doc, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-primary mt-1.5">•</span>
-              <span className="text-foreground">{doc}</span>
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="text-accent mt-1.5 text-xs">●</span>
+              <span className="text-foreground text-sm">{doc}</span>
             </li>
           ))}
         </ul>
+        {area.observations && (
+          <p className="text-xs text-muted-foreground mt-6 max-w-2xl italic">
+            Obs.: {area.observations}
+          </p>
+        )}
       </SectionContainer>
 
       {/* FAQ */}
@@ -184,7 +215,7 @@ export const PracticeAreaDetailPage = () => {
           <Accordion type="single" collapsible>
             {area.faq.map((item, i) => (
               <AccordionItem key={i} value={`faq-${i}`}>
-                <AccordionTrigger className="text-left text-base">
+                <AccordionTrigger className="text-left text-base font-medium">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed">
@@ -197,7 +228,7 @@ export const PracticeAreaDetailPage = () => {
       </SectionContainer>
 
       {/* CTA */}
-      <SectionContainer className="bg-secondary/50">
+      <SectionContainer className="bg-secondary/40">
         <div className="text-center max-w-xl mx-auto">
           <h2 className="font-serif text-2xl lg:text-3xl font-semibold text-foreground mb-4">
             Precisa de orientação nesta área?
