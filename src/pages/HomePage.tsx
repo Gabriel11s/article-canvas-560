@@ -26,6 +26,7 @@ import {
 import LawyerHeader from "@/components/LawyerHeader";
 import LawyerFooter from "@/components/LawyerFooter";
 import CTAButtons from "@/components/CTAButtons";
+import InstagramReels from "@/components/InstagramReels";
 import { SectionContainer, SectionTitle } from "@/components/PageLayout";
 import { practiceAreas } from "@/data/practiceAreas";
 import { testimonials, testimonialsDisclaimer } from "@/data/testimonials";
@@ -221,6 +222,14 @@ const HomePage = () => {
             </div>
           </motion.div>
         </div>
+      </SectionContainer>
+
+      {/* (D2) Reels + Social */}
+      <SectionContainer>
+        <SectionTitle subtitle="Acompanhe conteúdos jurídicos no Instagram.">
+          Conteúdo nas Redes
+        </SectionTitle>
+        <InstagramReels />
       </SectionContainer>
 
       {/* (E) Depoimentos */}
