@@ -6,19 +6,19 @@ const reels = [
   {
     id: "reel-1",
     url: "https://www.instagram.com/reel/DTyWnL9jvul/",
-    embedUrl: "https://www.instagram.com/reel/DTyWnL9jvul/embed/",
+    embedUrl: "https://www.instagram.com/reel/DTyWnL9jvul/embed/captioned/",
     title: "Dica Jurídica #1",
   },
   {
     id: "reel-2",
     url: "https://www.instagram.com/reel/DP3eh6MCXoC/",
-    embedUrl: "https://www.instagram.com/reel/DP3eh6MCXoC/embed/",
+    embedUrl: "https://www.instagram.com/reel/DP3eh6MCXoC/embed/captioned/",
     title: "Dica Jurídica #2",
   },
   {
     id: "reel-3",
     url: "https://www.instagram.com/reel/DPWb4FZDbUp/",
-    embedUrl: "https://www.instagram.com/reel/DPWb4FZDbUp/embed/",
+    embedUrl: "https://www.instagram.com/reel/DPWb4FZDbUp/embed/captioned/",
     title: "Dica Jurídica #3",
   },
 ];
@@ -58,14 +58,33 @@ const InstagramReels = () => {
           >
             {reels.map((reel) => (
               <div key={reel.id} className="min-w-full flex justify-center">
-                <div className="relative aspect-[9/16] max-h-[520px] w-full max-w-[292px] rounded-2xl overflow-hidden border border-border/40 bg-muted">
-                  <iframe
-                    src={reel.embedUrl}
-                    className="absolute inset-0 w-full h-full border-0"
-                    allowFullScreen
-                    loading="lazy"
-                    title={reel.title}
-                  />
+                {/* Cropped container - hides IG header/footer chrome */}
+                <div
+                  className="relative rounded-2xl overflow-hidden border border-border/40 bg-muted"
+                  style={{ width: 292, height: 520 }}
+                >
+                  <div
+                    className="absolute"
+                    style={{
+                      top: -64,
+                      left: -1,
+                      right: -1,
+                      bottom: -80,
+                    }}
+                  >
+                    <iframe
+                      src={reel.embedUrl}
+                      className="border-0 w-full h-full"
+                      allowFullScreen
+                      loading="lazy"
+                      title={reel.title}
+                      style={{ pointerEvents: "auto" }}
+                    />
+                  </div>
+                  {/* Top mask to cover IG header */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-muted z-10" />
+                  {/* Bottom mask to cover IG footer */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-muted z-10" />
                 </div>
               </div>
             ))}
