@@ -1,26 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Instagram, MessageCircle, Play, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Instagram, MessageCircle, ExternalLink } from "lucide-react";
 
 const reels = [
   {
     id: "reel-1",
     url: "https://www.instagram.com/reel/DTyWnL9jvul/",
+    embedUrl: "https://www.instagram.com/reel/DTyWnL9jvul/embed/",
     title: "Dica Jurídica #1",
-    description: "Orientação prática sobre seus direitos",
   },
   {
     id: "reel-2",
     url: "https://www.instagram.com/reel/DP3eh6MCXoC/",
+    embedUrl: "https://www.instagram.com/reel/DP3eh6MCXoC/embed/",
     title: "Dica Jurídica #2",
-    description: "Informação acessível e direta",
   },
   {
     id: "reel-3",
     url: "https://www.instagram.com/reel/DPWb4FZDbUp/",
+    embedUrl: "https://www.instagram.com/reel/DPWb4FZDbUp/embed/",
     title: "Dica Jurídica #3",
-    description: "Conteúdo educativo sobre direito",
   },
 ];
 
@@ -34,7 +33,7 @@ const InstagramReels = () => {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % reels.length);
-    }, 4000);
+    }, 8000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
@@ -45,7 +44,7 @@ const InstagramReels = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % reels.length);
-    }, 4000);
+    }, 8000);
   };
 
   return (
@@ -58,42 +57,17 @@ const InstagramReels = () => {
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
             {reels.map((reel) => (
-              <a
-                key={reel.id}
-                href={reel.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="min-w-full group"
-              >
-                <div className="relative aspect-[9/16] max-h-[520px] mx-auto w-full max-w-[292px] rounded-2xl overflow-hidden bg-primary/5 border border-border/40">
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent z-10" />
-                  
-                  {/* Play icon */}
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
-                      <Play className="h-7 w-7 text-accent-foreground ml-1" />
-                    </div>
-                  </div>
-
-                  {/* Instagram branding top */}
-                  <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center">
-                      <Instagram className="h-4 w-4 text-white" />
-                    </div>
-                    <span className="text-xs font-medium text-white/90">@marcusviniferr</span>
-                  </div>
-
-                  {/* Content bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 z-20">
-                    <h4 className="text-white font-serif font-semibold text-lg mb-1">{reel.title}</h4>
-                    <p className="text-white/70 text-sm">{reel.description}</p>
-                  </div>
-
-                  {/* Background pattern */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary" />
+              <div key={reel.id} className="min-w-full flex justify-center">
+                <div className="relative aspect-[9/16] max-h-[520px] w-full max-w-[292px] rounded-2xl overflow-hidden border border-border/40 bg-muted">
+                  <iframe
+                    src={reel.embedUrl}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    title={reel.title}
+                  />
                 </div>
-              </a>
+              </div>
             ))}
           </div>
 
