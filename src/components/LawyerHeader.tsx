@@ -1,46 +1,46 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, Phone, MessageCircle, Calendar } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Menu, Phone, MessageCircle, Calendar, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { to: "/", label: "Início" },
   { to: "/areas-de-atuacao", label: "Áreas de Atuação" },
   { to: "/sobre", label: "Sobre" },
-  { to: "/conteudos", label: "Conteúdos" },
   { to: "/agendar", label: "Agendar" },
   { to: "/contato", label: "Contato" },
 ];
 
 const LawyerHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex flex-col">
-            <span className="font-serif text-lg lg:text-xl font-semibold text-foreground leading-tight">
-              Marcos Vinícius
+          <Link to="/" className="flex flex-col group">
+            <span className="font-serif text-lg lg:text-xl font-semibold text-foreground leading-tight tracking-tight">
+              Dr. Marcus Vinícius
             </span>
-            <span className="text-xs text-muted-foreground tracking-wider uppercase">
-              Advogado • OAB/[UF] [Nº]
+            <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-medium">
+              Advogado • OAB/MG 213.881
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  location.pathname === link.to
+                    ? "text-foreground bg-secondary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
               >
                 {link.label}
               </Link>
@@ -49,82 +49,89 @@ const LawyerHeader = () => {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-2">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="tel:[TELEFONE]" aria-label="Ligar">
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+              <a href="tel:+5538988469501" aria-label="Ligar">
                 <Phone className="h-4 w-4" />
-                <span className="sr-only">Ligar</span>
               </a>
             </Button>
-            <Button variant="ghost" size="sm" asChild>
+            <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
               <a
-                href="https://wa.me/55[TELEFONE_LIMPO]"
+                href="https://wa.me/5538988469501"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span className="sr-only">WhatsApp</span>
               </a>
             </Button>
-            <Button size="sm" asChild>
+            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-sm" asChild>
               <Link to="/agendar">
-                <Calendar className="h-4 w-4 mr-1" />
+                <Calendar className="h-4 w-4 mr-1.5" />
                 Agendar
               </Link>
             </Button>
           </div>
 
-          {/* Mobile Menu */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <button
-                className="lg:hidden p-2 text-foreground"
-                aria-label="Abrir menu"
-              >
-                <Menu size={24} />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
-              <nav className="flex flex-col gap-4 mt-8">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.to}
-                    to={link.to}
-                    onClick={() => setIsOpen(false)}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-                <div className="border-t border-border pt-4 mt-2 flex flex-col gap-3">
-                  <Button asChild className="w-full">
-                    <Link to="/agendar" onClick={() => setIsOpen(false)}>
-                      <Calendar className="h-4 w-4 mr-2" />
-                      Agendar Atendimento
-                    </Link>
-                  </Button>
-                  <Button variant="outline" asChild className="w-full">
-                    <a
-                      href="https://wa.me/55[TELEFONE_LIMPO]"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="h-4 w-4 mr-2" />
-                      WhatsApp
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild className="w-full">
-                    <a href="tel:[TELEFONE]">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Ligar Agora
-                    </a>
-                  </Button>
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
+          {/* Mobile Menu Toggle */}
+          <button
+            className="lg:hidden p-2 text-foreground"
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="lg:hidden border-t border-border/50 bg-background/95 backdrop-blur-xl overflow-hidden"
+          >
+            <nav className="container mx-auto px-4 py-6 flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setIsOpen(false)}
+                  className={`px-4 py-3 text-base font-medium rounded-lg transition-colors ${
+                    location.pathname === link.to
+                      ? "text-foreground bg-secondary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="border-t border-border/50 pt-4 mt-3 flex flex-col gap-3">
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+                  <Link to="/agendar" onClick={() => setIsOpen(false)}>
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Agendar Atendimento
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild className="w-full">
+                  <a href="https://wa.me/5538988469501" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button variant="outline" asChild className="w-full">
+                  <a href="tel:+5538988469501">
+                    <Phone className="h-4 w-4 mr-2" />
+                    (38) 98846-9501
+                  </a>
+                </Button>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
