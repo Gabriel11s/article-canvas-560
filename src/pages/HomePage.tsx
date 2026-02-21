@@ -59,7 +59,7 @@ const HomePage = () => {
 
       {/* (A) Hero — Premium */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 premium-gradient opacity-[0.03]" />
+        <div className="absolute inset-0 premium-gradient opacity-[0.03] pointer-events-none" />
         <div className="container mx-auto px-4 lg:px-8 py-24 lg:py-40">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             <motion.div
@@ -317,7 +317,7 @@ const HomePage = () => {
 
       {/* (G) CTA Final */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 premium-gradient opacity-[0.03]" />
+        <div className="absolute inset-0 premium-gradient opacity-[0.03] pointer-events-none" />
         <SectionContainer>
           <div className="text-center max-w-2xl mx-auto">
             <motion.div
