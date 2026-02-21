@@ -56,7 +56,7 @@ const LawyerHeader = () => {
             </Button>
             <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
               <a
-                href="https://wa.me/5538988469501"
+                href="https://wa.me/5538988469501?text=Ol%C3%A1%2C%20Dr.%20Marcos%20Vin%C3%ADcius.%20Encontrei%20seu%20site%20e%20gostaria%20de%20falar%20sobre%20meu%20caso.%20Pode%20me%20orientar%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -116,7 +116,7 @@ const LawyerHeader = () => {
                   </Link>
                 </Button>
                 <Button variant="outline" asChild className="w-full">
-                  <a href="https://wa.me/5538988469501" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/5538988469501?text=Ol%C3%A1%2C%20Dr.%20Marcos%20Vin%C3%ADcius.%20Encontrei%20seu%20site%20e%20gostaria%20de%20falar%20sobre%20meu%20caso.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="h-4 w-4 mr-2" />
                     WhatsApp
                   </a>

@@ -210,7 +210,7 @@ const ContactPage = () => {
               <div className="rounded-2xl bg-secondary/50 border border-border/40 p-6 space-y-5">
                 <h3 className="font-serif font-semibold text-foreground">Canais de contato</h3>
                 <div className="space-y-4 text-sm">
-                  <a href="https://wa.me/5538988469501" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground hover:text-accent transition-colors">
+                  <a href="https://wa.me/5538988469501?text=Ol%C3%A1%2C%20Dr.%20Marcos%20Vin%C3%ADcius.%20Encontrei%20seu%20site%20e%20gostaria%20de%20falar%20sobre%20meu%20caso.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground hover:text-accent transition-colors">
                     <MessageCircle className="h-4 w-4 text-accent" />
                     (38) 98846-9501 (WhatsApp)
                   </a>
