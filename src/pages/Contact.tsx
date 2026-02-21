@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import LawyerHeader from "@/components/LawyerHeader";
 import LawyerFooter from "@/components/LawyerFooter";
@@ -183,9 +184,9 @@ const ContactPage = () => {
                     />
                     <label htmlFor="consent" className="text-xs text-muted-foreground leading-relaxed">
                       Li e concordo com a{" "}
-                      <a href="/politica-de-privacidade" target="_blank" className="text-accent underline underline-offset-2">
+                      <Link to="/politica-de-privacidade" className="text-accent underline underline-offset-2" target="_blank">
                         Política de Privacidade
-                      </a>{" "}
+                      </Link>{" "}
                       e autorizo o tratamento dos meus dados pessoais para fins de contato e agendamento.
                     </label>
                   </div>

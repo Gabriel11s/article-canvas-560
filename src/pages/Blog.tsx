@@ -68,31 +68,32 @@ const BlogPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.map((post) => (
-            <Card
-              key={post.slug}
-              className="group hover:shadow-md transition-shadow border-border/60"
-            >
-              <CardContent className="p-6">
-                <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                  {post.category}
-                </span>
-                <h3 className="font-semibold text-lg text-foreground mt-2 mb-3 leading-snug">
-                  {post.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString("pt-BR")}
+            <Link key={post.slug} to={`/conteudos/${post.slug}`} className="block">
+              <Card
+                className="group hover:shadow-md transition-shadow border-border/60 h-full"
+              >
+                <CardContent className="p-6">
+                  <span className="text-xs font-medium text-primary uppercase tracking-wider">
+                    {post.category}
                   </span>
-                  <span className="inline-flex items-center text-sm font-medium text-primary">
-                    Ler mais
-                    <ArrowRight className="h-4 w-4 ml-1" />
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
+                  <h3 className="font-semibold text-lg text-foreground mt-2 mb-3 leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-muted-foreground">
+                      {new Date(post.date).toLocaleDateString("pt-BR")}
+                    </span>
+                    <span className="inline-flex items-center text-sm font-medium text-primary group-hover:text-accent transition-colors">
+                      Ler mais
+                      <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
