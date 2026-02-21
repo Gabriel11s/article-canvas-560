@@ -102,7 +102,7 @@ const AboutPage = () => {
         <div className="max-w-3xl mx-auto">
           <SectionTitle>Valores</SectionTitle>
           <div className="flex flex-wrap gap-3">
-            {["Ética", "Técnica", "Clareza", "Diligência", "Sigilo", "Compromisso", "Humanização", "Transparência"].map(
+            {["Ética", "Técnica", "Clareza", "Diligência", "Sigilo", "Compromisso", "Humanização", "Transparência", "Família", "Valores Cristãos"].map(
               (valor) => (
                 <span
                   key={valor}
