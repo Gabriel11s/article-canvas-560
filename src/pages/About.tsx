@@ -6,6 +6,8 @@ import CTAButtons from "@/components/CTAButtons";
 import { SectionContainer, SectionTitle } from "@/components/PageLayout";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import aboutPhoto from "@/assets/marcus-photo-1.jpg";
+import couplePhoto from "@/assets/marcus-alyce.jpg";
 
 const AboutPage = () => {
   return (
@@ -24,10 +26,8 @@ const AboutPage = () => {
             Sobre
           </h1>
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="w-32 h-32 rounded-2xl bg-primary/10 shrink-0 flex items-center justify-center">
-              <span className="text-3xl font-serif font-bold text-primary/60">
-                MV
-              </span>
+            <div className="w-32 h-32 rounded-2xl overflow-hidden shrink-0 shadow-lg">
+              <img src={aboutPhoto} alt="Dr. Marcus Vinícius" className="w-full h-full object-cover object-top" />
             </div>
             <div>
               <p className="text-muted-foreground text-lg leading-relaxed mb-4">
@@ -140,10 +140,27 @@ const AboutPage = () => {
 
       {/* Mensagem pessoal */}
       <SectionContainer className="bg-secondary/40">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-lg text-muted-foreground italic leading-relaxed">
-            "Meu objetivo é que você entenda o seu caso, as alternativas possíveis e o caminho mais eficiente para resolver o problema, com seriedade e respeito."
-          </p>
+        <div className="max-w-3xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="md:flex-1">
+              <p className="text-lg text-muted-foreground italic leading-relaxed mb-6">
+                "Meu objetivo é que você entenda o seu caso, as alternativas possíveis e o caminho mais eficiente para resolver o problema, com seriedade e respeito."
+              </p>
+              <p className="text-sm text-muted-foreground">
+                — Dr. Marcus Vinícius e Alyce
+              </p>
+            </div>
+            <div className="md:flex-1 flex justify-center">
+              <div className="relative">
+                <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-accent/20 via-accent/5 to-transparent blur-sm" />
+                <img
+                  src={couplePhoto}
+                  alt="Dr. Marcus Vinícius e Alyce"
+                  className="relative rounded-2xl shadow-xl w-full max-w-[320px] aspect-[4/3] object-cover object-top"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </SectionContainer>
 
