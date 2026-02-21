@@ -94,9 +94,14 @@ const HomePage = () => {
               className="relative lg:flex-1 flex justify-center"
             >
               <div className="relative">
-                {/* Decorative accent ring */}
-                <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent/20 via-accent/5 to-transparent blur-sm" />
-                <div className="relative overflow-hidden rounded-[1.5rem] shadow-2xl shadow-primary/10 border border-border/20">
+                {/* Outer soft glow */}
+                <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-accent/10 via-accent/5 to-transparent blur-2xl" />
+                {/* Inner accent ring */}
+                <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent/20 via-accent/8 to-primary/5 blur-sm" />
+                {/* Subtle corner accents */}
+                <div className="absolute -top-1.5 -left-1.5 w-8 h-8 border-t-2 border-l-2 border-accent/25 rounded-tl-[1.2rem]" />
+                <div className="absolute -bottom-1.5 -right-1.5 w-8 h-8 border-b-2 border-r-2 border-accent/25 rounded-br-[1.2rem]" />
+                <div className="relative overflow-hidden rounded-[1.5rem] shadow-2xl shadow-primary/10 border border-border/20 ring-1 ring-accent/10 ring-offset-2 ring-offset-background">
                   <img
                     src={heroPhoto}
                     alt="Dr. Marcus Vinícius — Advogado"
