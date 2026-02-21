@@ -27,6 +27,7 @@ import LawyerHeader from "@/components/LawyerHeader";
 import LawyerFooter from "@/components/LawyerFooter";
 import CTAButtons from "@/components/CTAButtons";
 import InstagramReels from "@/components/InstagramReels";
+import TestimonialForm from "@/components/TestimonialForm";
 import { SectionContainer, SectionTitle } from "@/components/PageLayout";
 import { practiceAreas } from "@/data/practiceAreas";
 import { testimonials, testimonialsDisclaimer } from "@/data/testimonials";
@@ -292,6 +293,14 @@ const HomePage = () => {
         <p className="text-xs text-muted-foreground mt-6 text-center max-w-xl mx-auto">
           {testimonialsDisclaimer}
         </p>
+      </SectionContainer>
+
+      {/* (E2) Deixe seu Depoimento */}
+      <SectionContainer className="bg-secondary/40">
+        <SectionTitle subtitle="Sua experiência é importante para nós.">
+          Deixe seu Depoimento
+        </SectionTitle>
+        <TestimonialForm />
       </SectionContainer>
 
       {/* (F) FAQ */}
