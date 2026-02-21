@@ -302,7 +302,7 @@ const SchedulePage = () => {
                   <h4 className="font-serif font-semibold text-sm text-foreground mb-2">Prefere outro canal?</h4>
                   <div className="flex flex-col gap-2">
                     <Button variant="outline" size="sm" className="justify-start" asChild>
-                      <a href="https://wa.me/5538988469501" target="_blank" rel="noopener noreferrer">
+                      <a href="https://wa.me/5538988469501?text=Ol%C3%A1%2C%20Dr.%20Marcos%20Vin%C3%ADcius.%20Encontrei%20seu%20site%20e%20gostaria%20de%20falar%20sobre%20meu%20caso.%20Pode%20me%20orientar%3F" target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="h-4 w-4 mr-2" /> WhatsApp (38) 98846-9501
                       </a>
                     </Button>

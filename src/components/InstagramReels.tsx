@@ -24,7 +24,7 @@ const reels = [
 ];
 
 const INSTAGRAM_URL = "https://www.instagram.com/marcusviniferr";
-const WHATSAPP_URL = "https://wa.me/5538988469501";
+const WHATSAPP_URL = "https://wa.me/5538988469501?text=Ol%C3%A1%2C%20Dr.%20Marcos%20Vin%C3%ADcius.%20Encontrei%20seu%20site%20e%20gostaria%20de%20falar%20sobre%20meu%20caso.%20Pode%20me%20orientar%3F";
 
 const InstagramReels = () => {
   const [activeIndex, setActiveIndex] = useState(0);
