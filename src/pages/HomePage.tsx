@@ -31,6 +31,8 @@ import { SectionContainer, SectionTitle } from "@/components/PageLayout";
 import { practiceAreas } from "@/data/practiceAreas";
 import { testimonials, testimonialsDisclaimer } from "@/data/testimonials";
 import { faqData } from "@/data/faq";
+import heroPhoto from "@/assets/marcus-photo-2.jpg";
+import aboutPhoto from "@/assets/marcus-photo-1.jpg";
 
 const iconMap: Record<string, React.ReactNode> = {
   Heart: <Heart className="h-6 w-6" />,
@@ -59,30 +61,54 @@ const HomePage = () => {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 premium-gradient opacity-[0.03]" />
         <div className="container mx-auto px-4 lg:px-8 py-24 lg:py-40">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-8">
-              <MapPin className="h-3.5 w-3.5" />
-              Pirapora/MG • Atendimento presencial e online
-            </div>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-semibold text-foreground leading-[1.15] mb-6 tracking-tight">
-              Dr. Marcus Vinícius
-              <span className="block text-xl md:text-2xl lg:text-[1.65rem] font-normal text-muted-foreground mt-3 font-sans tracking-normal">
-                Advogado — OAB/MG 213.881
-              </span>
-            </h1>
-            <p className="text-muted-foreground text-lg lg:text-xl mb-4 max-w-xl leading-relaxed">
-              Atuação estratégica e humanizada em Direito de Família, Previdenciário e Regularização Imobiliária, com atendimento presencial e online.
-            </p>
-            <p className="text-sm text-muted-foreground/70 mb-10">
-              Idiomas: Português • English
-            </p>
-            <CTAButtons />
-          </motion.div>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="max-w-xl lg:flex-1"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-medium mb-8">
+                <MapPin className="h-3.5 w-3.5" />
+                Pirapora/MG • Atendimento presencial e online
+              </div>
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] font-semibold text-foreground leading-[1.15] mb-6 tracking-tight">
+                Dr. Marcus Vinícius
+                <span className="block text-xl md:text-2xl lg:text-[1.65rem] font-normal text-muted-foreground mt-3 font-sans tracking-normal">
+                  Advogado — OAB/MG 213.881
+                </span>
+              </h1>
+              <p className="text-muted-foreground text-lg lg:text-xl mb-4 max-w-xl leading-relaxed">
+                Atuação estratégica e humanizada em Direito de Família, Previdenciário e Regularização Imobiliária, com atendimento presencial e online.
+              </p>
+              <p className="text-sm text-muted-foreground/70 mb-10">
+                Idiomas: Português • English
+              </p>
+              <CTAButtons />
+            </motion.div>
+
+            {/* Hero Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="relative lg:flex-1 flex justify-center"
+            >
+              <div className="relative">
+                {/* Decorative accent ring */}
+                <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent/20 via-accent/5 to-transparent blur-sm" />
+                <div className="relative overflow-hidden rounded-[1.5rem] shadow-2xl shadow-primary/10 border border-border/20">
+                  <img
+                    src={heroPhoto}
+                    alt="Dr. Marcus Vinícius — Advogado"
+                    className="w-[280px] md:w-[340px] lg:w-[400px] aspect-[3/4] object-cover object-top"
+                  />
+                  {/* Subtle gradient overlay at bottom */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-primary/20 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -183,10 +209,12 @@ const HomePage = () => {
             transition={{ duration: 0.5 }}
             className="flex flex-col md:flex-row gap-8 items-start"
           >
-            <div className="w-28 h-28 rounded-2xl bg-primary/10 shrink-0 flex items-center justify-center">
-              <span className="text-3xl font-serif font-bold text-primary/60">
-                MV
-              </span>
+            <div className="w-28 h-28 rounded-2xl overflow-hidden shrink-0 shadow-lg">
+              <img
+                src={aboutPhoto}
+                alt="Dr. Marcus Vinícius"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
               <h2 className="font-serif text-2xl lg:text-3xl font-semibold text-foreground mb-4">
