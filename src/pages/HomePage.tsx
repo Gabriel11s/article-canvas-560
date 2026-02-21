@@ -10,7 +10,6 @@ import {
   MessageCircle,
   Phone,
   ArrowRight,
-  Quote,
   CheckCircle,
   MapPin,
 } from "lucide-react";
@@ -30,7 +29,6 @@ import InstagramReels from "@/components/InstagramReels";
 import TestimonialForm from "@/components/TestimonialForm";
 import { SectionContainer, SectionTitle } from "@/components/PageLayout";
 import { practiceAreas } from "@/data/practiceAreas";
-import { testimonials, testimonialsDisclaimer } from "@/data/testimonials";
 import { faqData } from "@/data/faq";
 import heroPhoto from "@/assets/marcus-photo-2.jpg";
 import aboutPhoto from "@/assets/marcus-photo-1.jpg";
@@ -265,40 +263,6 @@ const HomePage = () => {
       <SectionContainer>
         <SectionTitle subtitle="O que dizem sobre o atendimento.">
           Depoimentos
-        </SectionTitle>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
-              <Card className="border-border/40 h-full hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <Quote className="h-5 w-5 text-accent/30 mb-3" />
-                  <p className="text-foreground leading-relaxed mb-4 italic text-[0.95rem]">
-                    "{t.text}"
-                  </p>
-                  <span className="text-sm text-muted-foreground font-medium">
-                    — {t.initials}
-                  </span>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-        <p className="text-xs text-muted-foreground mt-6 text-center max-w-xl mx-auto">
-          {testimonialsDisclaimer}
-        </p>
-      </SectionContainer>
-
-      {/* (E2) Deixe seu Depoimento */}
-      <SectionContainer className="bg-secondary/40">
-        <SectionTitle subtitle="Sua experiência é importante para nós.">
-          Deixe seu Depoimento
         </SectionTitle>
         <TestimonialForm />
       </SectionContainer>
